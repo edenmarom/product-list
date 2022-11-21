@@ -1,8 +1,12 @@
 import React from "react";
 
 
-const Product = (prop: { name: string, price: number, imageUrl: string }) => {
-    const replaceView=()=>{console.log("heyyyy")}
+const Product = (prop: { name: string, price: number, imageUrl: string, setIsList: boolean, index:number}) => {
+
+    const replaceView = () => {
+    prop.setIsList(false)
+    prop.setSelectedItem(prop.index)
+    }
 
     return (
         <div className={"item-container"}>

@@ -7,9 +7,9 @@ import ProductList from "./ProductList";
 
 const App = () => {
     const [items] = useState([
-        {name: 'Anti Aging Serum', price: 256, imageUrl: serum},
-        {name: 'Face Cram', price: 50, imageUrl: cream},
-        {name: 'Micelar Water', price: 30, imageUrl: water}
+        {name: 'Anti Aging Serum', price: 256, imageUrl: serum , store:'clinic', pic2:'', description:'Makes you younger'},
+        {name: 'Face Cream', price: 50, imageUrl: cream ,store:'Deli Cream', pic2:'', description:'Makes you beautiful'},
+        {name: 'Micellar Water', price: 30, imageUrl: water ,store:'Yamit 2000', pic2:'', description:'Makes you hydrated'}
     ]);
 
     return (
@@ -19,6 +19,6 @@ const App = () => {
             </div>
         </div>
     );
-};
+}
 
 export default App;
