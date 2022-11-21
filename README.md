@@ -12,13 +12,3 @@ Run the starter code:
 - npm start
 ```
 
-Run the starter code:
-
-```
-- cd simple-shopping-list/final
-
-- npm install
-
-- npm start
-```
-
