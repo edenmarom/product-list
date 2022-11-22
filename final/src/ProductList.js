@@ -2,30 +2,29 @@ import Product from "./Product";
 import React, {useState} from "react";
 import ProductView from "./ProductView";
 
-const ProductList = (prop: { items: {} }) => {
+const ProductList = (productList: { items: {} }) => {
+
     const [isList, setIsList] = useState(true)
     const [selectedItem, setSelectedItem] = useState(0)
     if (isList) {
 
         return (
             <div className='item-list'>
-                {prop.items.map((item, index) => (
+                {productList.items.map((product, index) => (
                     <Product key={index} index={index} setIsList={setIsList} setSelectedItem={setSelectedItem}
-                             name={item.name} price={item.price}
-                             imageUrl={item.imageUrl}/>
+                             name={product.name} price={product.price}
+                             imageUrl={product.imageUrl}/>
                 ))}
             </div>
-
-
         );
     }
     return (
         <div>
             <button onClick={() => setIsList(true)}>Back</button>
-            <ProductView name={prop.items[selectedItem].name} price={prop.items[selectedItem].price}
-                         imageUrl={prop.items[selectedItem].imageUrl} store={prop.items[selectedItem].store}
-                         pic2={prop.items[selectedItem].pic2} description={prop.items[selectedItem].description}
-            />)
+            <ProductView name={productList.items[selectedItem].name} price={productList.items[selectedItem].price}
+                         imageUrl={productList.items[selectedItem].imageUrl} store={productList.items[selectedItem].store}
+                         imageUrl2={productList.items[selectedItem].imageUrl2} description={productList.items[selectedItem].description}
+            />
         </div>
     );
 

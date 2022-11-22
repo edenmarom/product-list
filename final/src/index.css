@@ -1,5 +1,5 @@
 * {
-  font-size: 36px;
+  font-size: 20px;
 }
 
 body {
@@ -49,6 +49,20 @@ body {
   padding-bottom: 10%;
 }
 
+.item-details{
+  display: contents;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: #ffffff;
+  padding: 20px 0 20px 0;
+  padding-bottom: 10%;
+}
+
+.details{
+    font-weight: bold;
+    padding-top: 10%;
+}
+
 .item-name {
   cursor: pointer;
   padding-bottom: 16%;
@@ -63,11 +77,7 @@ body {
 .img {
   width: 150px; 
   height: 150px;
-}
-
-.item-price::after {
-  content: "  ₪";
-}
+} 
 
 .item-name svg {
   margin-left: 5px;

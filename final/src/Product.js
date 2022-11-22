@@ -1,23 +1,22 @@
 import React from "react";
 
-
-const Product = (prop: { name: string, price: number, imageUrl: string, setIsList: boolean, index:number}) => {
+const Product = (product: { name: string, price: number, imageUrl: string, setIsList: boolean, index:number}) => {
 
     const replaceView = () => {
-    prop.setIsList(false)
-    prop.setSelectedItem(prop.index)
+    product.setIsList(false)
+    product.setSelectedItem(product.index)
     }
 
     return (
-        <div className={"item-container"}>
+        <div className={"item-container"} onClick={replaceView} >
             <div className='item-name'>
-                <span>{prop.name}</span>
+                <span>{product.name}</span>
             </div>
             <div className='item-price'>
-                <div>{prop.price}</div>
+                <div>{product.price}</div>
             </div>
             <div className='item-img'>
-                <img onClick={replaceView} className='img' src={prop.imageUrl} alt="HTML5 Icon"></img>
+                <img className='img' src={product.imageUrl} alt="HTML5 Icon"></img>
             </div>
         </div>
     );
