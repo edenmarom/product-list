@@ -1,12 +1,12 @@
 import React from "react";
 import Product from "./Product";
 
-const ProductView = (detailedProduct: { name: string, price: number, imageUrl: string , store:string, imageUrl2:string, description:string}) => {
+const ProductView = (detailedProduct: { name: string, price: number, imgUrl: string , store:string, imgUrl2:string, description:string}) => {
     return (
         <div className={"item-details"}>
-            <Product name={detailedProduct.name} price={detailedProduct.price} imageUrl={detailedProduct.imageUrl}/>
+            <Product name={detailedProduct.name} price={detailedProduct.price} imgUrl={detailedProduct.imgUrl}/>
             <div className="details">More details:</div>
-            <Product name={detailedProduct.store} price={detailedProduct.description} imageUrl={detailedProduct.imageUrl2}/>
+            <Product name={detailedProduct.store} price={detailedProduct.description} imgUrl={detailedProduct.imgUrl2}/>
         </div>
     );
 }

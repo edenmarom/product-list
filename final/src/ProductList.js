@@ -13,7 +13,7 @@ const ProductList = (productList: { items: {} }) => {
                 {productList.items.map((product, index) => (
                     <Product key={index} index={index} setIsList={setIsList} setSelectedItem={setSelectedItem}
                              name={product.name} price={product.price}
-                             imageUrl={product.imageUrl}/>
+                             imgUrl={product.imgUrl}/>
                 ))}
             </div>
         );
@@ -22,8 +22,8 @@ const ProductList = (productList: { items: {} }) => {
         <div>
             <button onClick={() => setIsList(true)}>Back</button>
             <ProductView name={productList.items[selectedItem].name} price={productList.items[selectedItem].price}
-                         imageUrl={productList.items[selectedItem].imageUrl} store={productList.items[selectedItem].store}
-                         imageUrl2={productList.items[selectedItem].imageUrl2} description={productList.items[selectedItem].description}
+                         imgUrl={productList.items[selectedItem].imgUrl} store={productList.items[selectedItem].store}
+                         imgUrl2={productList.items[selectedItem].imgUrl2} description={productList.items[selectedItem].description}
             />
         </div>
     );

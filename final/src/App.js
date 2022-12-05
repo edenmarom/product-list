@@ -1,27 +1,45 @@
 import React, {useState} from 'react';
 import './index.css';
-import serum from './assets/serum.jpg';
-import cream from './assets/cream.jpg';
-import water from './assets/water.jpg';
-import serum2 from './assets/serum2.jpg';
-import cream2 from './assets/cream2.jpg';
-import water2 from './assets/water2.jpg';
 import ProductList from "./ProductList";
+import axios from "axios";
+import {
+  useQuery,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const App = () => {
-    const [items] = useState([
-        {name: 'Anti Aging Serum', price: 256, imageUrl: serum , store:'Clinic', imageUrl2: serum2, description:'Makes you younger'},
-        {name: 'Face Cream', price: 50, imageUrl: cream ,store:'Super Pharm', imageUrl2: cream2, description:'Makes you beautiful'},
-        {name: 'Micellar Water', price: 30, imageUrl: water ,store:'Be Super Pharm', imageUrl2: water2, description:'Makes you hydrated'}
-    ]);
 
     return (
-        <div className='app-background'>
-            <div className='main-container'>
-                <ProductList items={items}/>
-            </div>
-        </div>
+      <div className="app-background">
+        <QueryClientProvider client={queryClient}>
+          <GetProducts />
+        </QueryClientProvider>
+      </div>
     );
+}
+
+function GetProducts() {
+  const { isLoading, error, data, isFetching } = useQuery(["repoData"], () =>
+    axios.get("http://localhost:3000/getAllProducts").then((res) => {
+      return res.data;
+    })
+  );
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
+
+  return (
+    <div>
+      <div className="main-container">
+        <ProductList items={data} />
+      </div>
+    </div>
+  );
 }
 
 export default App;
