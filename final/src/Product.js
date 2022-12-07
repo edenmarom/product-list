@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Product = (product: { name: string, price: number, imgUrl: string, setIsList: boolean, index:number}) => {
 
+    const [cnt, setCnt] = useState(0);
     const replaceView = () => {
-    product.setIsList(false)
-    product.setSelectedItem(product.index)
+        product.setIsList(false)
+        product.setSelectedItem(product.index)
     }
-
     return (
-        <div className={"item-container"} onClick={replaceView} >
+        <div className={"item-container"} onClick={replaceView}>
+
             <div className='item-name'>
                 <span>{product.name}</span>
             </div>
