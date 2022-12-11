@@ -18,36 +18,17 @@ const ProductList = ({items, setOrder, order}) => {
         setOrder(orderItems)
     }, [])
 
-    console.log(order)
     if (isList) {
 
         return (
 
             <div className='item-list'>
                 <ShoppingCart order={order} orderItems={orderItems} setOrder={setOrder}/>
-
                 {items.map((product, index) => (
                     <div>
                         <ActionIcon>
-                            <IconPlus size={18} variant="outline"
-                                      onClick={() => {
-                                          console.log(product)
-                                          const newList = order.map((item, key) => {
-                                              if (key === index) {
-                                                  const updatedItem = {
-                                                      ...item,
-                                                      count: item.count + 1,
-                                                  };
-
-                                                  return updatedItem;
-                                              }
-
-                                              return item;
-                                          });
-
-                                          setOrder(newList);
-                                      }}
-                            />
+                            <IconPlus size={18} variant="outline" displayName="Add To Cart"
+                                      onClick={addProduct(product, order, index, setOrder)}/>
                         </ActionIcon>
                         <Product key={index} index={index} setIsList={setIsList} setSelectedItem={setSelectedItem}
                                  name={product.name} price={product.price}
@@ -70,3 +51,23 @@ const ProductList = ({items, setOrder, order}) => {
 
 }
 export default ProductList;
+
+const addProduct = (product, order, index, setOrder) => {
+    return () => {
+        const newList = order.map((item, key) => {
+            if (key === index) {
+                const updatedItem = {
+                    ...item,
+                    count: item.count + 1,
+                };
+
+                return updatedItem;
+            }
+
+            return item;
+        });
+
+        setOrder(newList);
+        alert('Product added successfully!');
+    };
+}

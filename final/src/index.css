@@ -1,7 +1,3 @@
-* {
-  font-size: 20px;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -82,4 +78,39 @@ body {
 .item-name svg {
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.totalHeader{
+  font-style: italic;
+  font-size: unset;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.total{
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.totalSection{
+  display: flex;
+}
+
+.cartHeader{
+  padding-bottom: 20px;
+}
+
+.cartCol{
+  font-size: small;
+  display: 'flex';
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  text-decoration-line: underline;
+  font-weight: 600;
+}
+
+.cartProductsDisplay{
+  font-family : sans-serif; 
+  font-size: 12px !important;
 }
